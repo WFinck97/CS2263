@@ -1,18 +1,12 @@
-#ifndef mystr_h
-#define mystr_h
+#ifndef Word_Stats_h
+#define Word_Stats_h
 #include <stdlib.h>
-/* Given a string pointed to by 'str'
-put the next word in 'word'. "words" are defined as sequence of
-alphabetic characters separated by blanks.
-The function must return a pointer to the char after the 'word'
-Return NULL if no word was found.
-'str' only contains characters: 'a' - 'z', 'A' - 'Z', and ' '
+#include <string.h>
+
+/* searches for the string word in the file f(a pointer returned by a call to fopen in main),
+and computes the total score of reviews containing the word and the total number of reviews 
+that contain the word. These two values arereturned by reference (sumandnum).
 */
 void getWordStats(char *word, FILE *f, int *sum, int *num);
 
-
-/* replace all duplicate consecutive blanks with a
-single blank character.
-*/
-void remove_dup_blanks(char *str);
-#endif /* mystr_h */
+#endif /* Word_Stats_h */
