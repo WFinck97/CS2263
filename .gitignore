@@ -1,14 +1,15 @@
 # Ignore All
-#*
+*
 
 # Unignore all with extensions
-#!*.*
-#!*.txt
-
+!*.c
+!*.txt
+!*.h
+!Makefile
 
 # Object files
-*.o
+#*.o
 
 # Executables
-*.exe
-*.out
+#*.exe
+#*.out
