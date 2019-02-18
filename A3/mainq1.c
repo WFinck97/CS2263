@@ -11,7 +11,6 @@ int main(int argc, char* argv[]){
 	
 	char const* const fileName = argv[1]; /* should check that argc > 1 */
     FILE* file = fopen(fileName, "r"); /* should check the result */
-    char line[256];
 
     char word[MAX_STRING_LEN];
     int *psum, *pnum, num = 0, sum = 0;
