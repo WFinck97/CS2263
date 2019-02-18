@@ -2,6 +2,19 @@
 
 #include "Word_Stats.h"
 #define MAX_LENGTH 80
+
+char *strlwr(char *str)
+{
+  unsigned char *p = (unsigned char *)str;
+
+  while (*p) {
+     *p = tolower((unsigned char)*p);
+      p++;
+  }
+
+  return str;
+}
+
 void getWordStats(char *word, FILE *f, int *sum, int *num){
 	/* look through each line for 'word', only need to look for the first instance
 	of the word. If found, add score to sum and num++. move to next line.
@@ -19,14 +32,17 @@ void getWordStats(char *word, FILE *f, int *sum, int *num){
 	}
 	_word_[i+1] = ' ';
 	_word_[i+2] = '\0';
+	
 	printf("%s", _word_);
+
+
 	//will need to make sure caps don't matter
     while (fgets(line, sizeof(line), f)) {
         /* note that fgets don't strip the terminating \n, checking its
            presence would allow to handle lines longer that sizeof(line) */
         numLine++;
         printf("%s", line);
-        if(strstr(line, _word_) != NULL){
+        if(strstr(strlwr(line), strlwr(_word_)) != NULL){
         	(*num)++;
         	printf("match\n");
 		}
