@@ -1,9 +1,9 @@
 # Ignore All
-*
+#*
 
 # Unignore all with extensions
-!*.*
-!*.txt
+#!*.*
+#!*.txt
 
 
 # Object files
