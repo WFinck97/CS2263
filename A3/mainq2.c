@@ -37,6 +37,12 @@ int main(int argc, char* argv[]){
             printf("%c", word[i]);
             i++;
         }
+        sum = 0;
+        num = 0;
+        getWordStats(word, file, psum, pnum);
+	    printf("the sum is: %d\n", sum);
+	    printf("%s appeared %d times\n", word, num);
+	    printf("The average score for reviews containing %s is %lf\n", word, (double) sum/num);
         printf("\n");
         strIn = nextWord;
         strIn++;
@@ -49,9 +55,6 @@ int main(int argc, char* argv[]){
     }
     */
     
-    review[i-1] = '\0';
-
-    printf("%s\n", review);
     //getWordStats(word, file, psum, pnum);
     printf("the sum is: %d\n", sum);
     //printf("%s appeared %d times\n", word, num);
