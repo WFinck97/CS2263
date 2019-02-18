@@ -35,8 +35,6 @@ void getWordStats(char *word, FILE *f, int *sum, int *num){
 	
 	printf("%s\n", _word_);
 
-
-	//will need to make sure caps don't matter
     while (fgets(line, sizeof(line), f)) {
         /* note that fgets don't strip the terminating \n, checking its
            presence would allow to handle lines longer that sizeof(line) */
@@ -44,7 +42,7 @@ void getWordStats(char *word, FILE *f, int *sum, int *num){
         //printf("%s", line);
         if(strstr(strlwr(line), strlwr(_word_)) != NULL){
         	(*num)++;
-        	//printf("match\n");
+        	*sum = *sum + (line[0] - '0');
 		}
     }
 
