@@ -3,7 +3,7 @@
 
 # Unignore all with extensions
 !*.*
-
+!*.txt
 # Prerequisites
 *.d
 
