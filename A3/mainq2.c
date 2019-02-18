@@ -13,11 +13,18 @@ char * next_word(char *str, char *word);
 
 int main(int argc, char* argv[]){
 	
-	char const* const fileName = argv[1]; /* should check that argc > 1 */
-    FILE* file = fopen(fileName, "r"); /* should check the result */
+	if(argc != 2){
+		printf("please enter one file\n");
+		return EXIT_FAILURE;
+	}
+	char const* const fileName = argv[1];
+    FILE* file;
+    if((file = fopen(fileName, "r")) == NULL){
+    	printf("invalid file name\n");
+    	return EXIT_FAILURE;
+    }
 
-    char review[MAX_REVIEW_L], cin;
-    int *psum, *pnum, num = 0, sum = 0, i = 0;
+    int *psum, *pnum, num = 0, sum = 0;
     psum = &sum;
     pnum = &num;
 
@@ -32,11 +39,7 @@ int main(int argc, char* argv[]){
     strIn = line;
     while(nextWord){
         nextWord = next_word(strIn, word);
-        i = 0;
-        while(word[i]){
-            printf("%c", word[i]);
-            i++;
-        }
+        printf("%s\n", word);
         sum = 0;
         num = 0;
         getWordStats(word, file, psum, pnum);
@@ -46,23 +49,13 @@ int main(int argc, char* argv[]){
         printf("\n");
         strIn = nextWord;
         strIn++;
+        fclose(file);
+        file = fopen(fileName, "r");
     }
-    /*
-    while(cin != '\n'){
-    	scanf("%c", &cin);
-    	review[i] = cin;
-    	i++;
-    }
-    */
     
-    //getWordStats(word, file, psum, pnum);
-    printf("the sum is: %d\n", sum);
-    //printf("%s appeared %d times\n", word, num);
-    //printf("The average score for reviews containing %s is %lf\n", word, (double) sum/num);
     fclose(file);
 
     return 0;
-
 }
 
 char * next_word(char *str, char *word){
