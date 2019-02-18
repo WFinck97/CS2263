@@ -9,7 +9,7 @@ void getWordStats(char *word, FILE *f, int *sum, int *num){
 
 	char line[256];
 
-    while (fgets(line, sizeof(line), file)) {
+    while (fgets(line, sizeof(line), f)) {
         /* note that fgets don't strip the terminating \n, checking its
            presence would allow to handle lines longer that sizeof(line) */
         printf("%s", line); 
