@@ -21,10 +21,10 @@ int main(int argc, char* argv[]){
     printf("enter a word: ");
     scanf("%s", word);
 
-    printf("%s\n", word);
 
     getWordStats(word, file, psum, pnum);
-    printf("%d\n", num);
+    
+    printf("%s appeared %d times\n", word, num);
     fclose(file);
 
     return 0;
