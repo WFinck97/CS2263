@@ -1,6 +1,6 @@
 # Ignore All
-*
 
+*/*
 # Unignore all with extensions
 !*.c
 !*.txt
