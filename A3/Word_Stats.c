@@ -44,6 +44,7 @@ void getWordStats(char *word, FILE *f, int *sum, int *num){
         	(*num)++;
         	*sum = *sum + (line[0] - '0');
 		}
+		
     }
 
     // when checking a word should I add space to start and end to make sure 

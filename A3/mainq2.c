@@ -46,7 +46,7 @@ int main(int argc, char* argv[]){
         getWordStats(word, file, psum, pnum);
 	    printf("the sum is: %d\n", sum);
 	    printf("%s appeared %d times\n", word, num);
-	    if(num){
+	    if(num != 0){
 	    	avg = (double) sum / (double) num;
 	    	numWord++;
 	    }
