@@ -22,7 +22,6 @@ int main(int argc, char* argv[]){
 
 
     getWordStats(word, file, psum, pnum);
-    printf("the sum is: %d\n", sum);
     printf("%s appeared %d times\n", word, num);
     printf("The average score for reviews containing %s is %lf\n", word, (double) sum/num);
     fclose(file);

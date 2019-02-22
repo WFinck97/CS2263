@@ -33,8 +33,6 @@ void getWordStats(char *word, FILE *f, int *sum, int *num){
 	_word_[i+1] = ' ';
 	_word_[i+2] = '\0';
 	
-	printf("%s\n", _word_);
-
     while (fgets(line, sizeof(line), f)) {
         /* note that fgets don't strip the terminating \n, checking its
            presence would allow to handle lines longer that sizeof(line) */
@@ -46,10 +44,4 @@ void getWordStats(char *word, FILE *f, int *sum, int *num){
 		}
 		
     }
-
-    // when checking a word should I add space to start and end to make sure 
-    // im not finding the word withing a word?
-    printf("number of lines: %d\n", numLine); 
-    /* may check feof here to make a difference between eof and io failure -- network
-       timeout for instance */
 }
