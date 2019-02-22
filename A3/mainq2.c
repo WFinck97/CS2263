@@ -40,12 +40,9 @@ int main(int argc, char* argv[]){
     strIn = line;
     while(nextWord){
         nextWord = next_word(strIn, word);
-        printf("%s\n", word);
         sum = 0;
         num = 0;
         getWordStats(word, file, psum, pnum);
-	    printf("the sum is: %d\n", sum);
-	    printf("%s appeared %d times\n", word, num);
 	    if(num != 0){
 	    	avg = (double) sum / (double) num;
 	    	numWord++;
@@ -53,8 +50,6 @@ int main(int argc, char* argv[]){
 	    else{
 	    	avg = 0;
 	    }
-	    printf("The average score for reviews containing %s is %lf\n", word, avg);
-        printf("\n");
         revSum = revSum + avg;
         
         strIn = nextWord;

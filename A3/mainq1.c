@@ -9,8 +9,16 @@
 
 int main(int argc, char* argv[]){
 	
-	char const* const fileName = argv[1]; /* should check that argc > 1 */
-    FILE* file = fopen(fileName, "r"); /* should check the result */
+	if(argc != 2){
+		printf("please enter one file\n");
+		return EXIT_FAILURE;
+	}
+	char const* const fileName = argv[1];
+    FILE* file;
+    if((file = fopen(fileName, "r")) == NULL){
+    	printf("invalid file name\n");
+    	return EXIT_FAILURE;
+    }
 
     char word[MAX_STRING_LEN];
     int *psum, *pnum, num = 0, sum = 0;
