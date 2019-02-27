@@ -31,7 +31,12 @@ int main(int argc, char* argv[]){
 
     getWordStats(word, file, psum, pnum);
     printf("%s appeared %d times\n", word, num);
-    printf("The average score for reviews containing %s is %lf\n", word, (double) sum/num);
+    if(num == 0){
+        printf("No average score for a word that appears 0 times.\n");
+    }
+    else{
+        printf("The average score for reviews containing %s is %lf\n", word, (double) sum/num);
+    }
     fclose(file);
 
     return 0;
