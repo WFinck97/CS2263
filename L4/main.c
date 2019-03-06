@@ -8,7 +8,7 @@
 #define WORDL 20
 
 int main(){
-
+	int i = 0;
 	printf("enter sentence:\n");
     
     char line[LINEL+1];
@@ -22,5 +22,11 @@ int main(){
     printf("%s\n", strIn);
 
     char **tokenArray = stringToTokens(strIn, ", ");
+    while(tokenArray[i] != NULL){
+    	printf("%s\n", tokenArray[i]);
+    	i++;
+    }
+
+    free(tokenArray);
     return 0;
 }

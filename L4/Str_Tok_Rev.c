@@ -1,10 +1,12 @@
 #include "Str_Tok_Rev.h"
 
 char **stringToTokens(char *str, char *sep){
-char *strpt = str, *wordToken;
-int numWords = 0;
-	
-	if((wordToken = strtok(strpt, " ")) != NULL){
+	char *strpt = str, *wordTok, *wordToken;
+	int numWords = 0, i = 0;
+	char cpyIn[80];
+
+	strcpy(cpyIn, str);
+	if((wordToken = strtok(cpyIn, " ")) != NULL){
 		numWords++;
 	}
 	else{
@@ -14,12 +16,32 @@ int numWords = 0;
 
 	while(wordToken != NULL){
 		wordToken = strtok(NULL, " ");
-		printf("%s\n", wordToken);
-		numWords++;
+		if(wordToken != NULL){
+			numWords++;
+			printf("%s\n", wordToken);
+		}
 	}
 
 	printf("number of words: %d\n", numWords);
-	return NULL;
+
+	char **tokArray = malloc(numWords*sizeof(char*));
+
+	wordTok = strtok(strpt, " ");
+	printf("%s\n", wordTok);
+	tokArray[i] = wordTok;
+	i++;
+	while(wordTok != NULL){
+		wordTok = strtok(NULL, " ");
+		if(wordTok != NULL){
+			printf("%s\n", wordTok);
+			tokArray[i] = wordTok;
+			i++;
+		}
+	}
+	tokArray[i] = NULL;
+	printf("number of words: %d\n", numWords);
+
+	return tokArray;
 }
 
 void destroyTokens(char **tokenArray){
