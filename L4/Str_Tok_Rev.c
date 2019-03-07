@@ -31,7 +31,7 @@ char **stringToTokens(char *str, char *sep){
 	word = malloc(len*sizeof(char));
 	strcpy(word,wordTok);
 	printf("%s\n", word);
-
+	reverse(word);
 	tokArray[i] = word;
 	i++;
 	while(wordTok != NULL){
@@ -41,6 +41,7 @@ char **stringToTokens(char *str, char *sep){
 			word = malloc(len*sizeof(char));
 			strcpy(word,wordTok);
 			printf("%s\n", word);
+			reverse(word);
 			tokArray[i] = word;
 			i++;
 		}
@@ -61,6 +62,14 @@ void destroyTokens(char **tokenArray){
 }
 
 void reverse(char *s){
-	int len;
+	int len, i, end;
+	char temp;
 	len = strlen(s);
+	end = len - 1;
+	for(i = 0; i <= len/2; i++){
+		temp = s[i];
+		s[i] = s[end];
+		s[end] = temp;
+		end--;
+	}
 }
