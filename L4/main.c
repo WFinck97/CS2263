@@ -25,9 +25,7 @@ int main(){
     while(tokenArray[i] != NULL){
     	printf("%s\n", tokenArray[i]);
     	i++;
-    	free(tokenArray[i]);
     }
-    free(tokenArray);
-    // destroyTokens(tokenArray);
+    destroyTokens(tokenArray);
     return 0;
 }
