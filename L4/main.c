@@ -19,11 +19,9 @@ int main(){
 
     strIn = line;
 
-    printf("%s\n", strIn);
-
     char **tokenArray = stringToTokens(strIn, ", ");
     while(tokenArray[i] != NULL){
-    	printf("%s\n", tokenArray[i]);
+    	printf("%s ", tokenArray[i]);
     	i++;
     }
     destroyTokens(tokenArray);

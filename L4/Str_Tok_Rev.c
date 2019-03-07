@@ -12,17 +12,13 @@ char **stringToTokens(char *str, char *sep){
 	else{
 		printf("only one word was entered");
 	}
-	printf("%s\n", wordToken);
 
 	while(wordToken != NULL){
 		wordToken = strtok(NULL, sep);
 		if(wordToken != NULL){
 			numWords++;
-			printf("%s\n", wordToken);
 		}
 	}
-
-	printf("number of words: %d\n", numWords);
 
 	char **tokArray = malloc((numWords+1)*sizeof(char*));
 
@@ -30,7 +26,6 @@ char **stringToTokens(char *str, char *sep){
 	len = strlen(wordTok);
 	word = malloc(len*sizeof(char));
 	strcpy(word,wordTok);
-	printf("%s\n", word);
 	reverse(word);
 	tokArray[i] = word;
 	i++;
@@ -40,15 +35,12 @@ char **stringToTokens(char *str, char *sep){
 			len = strlen(wordTok);
 			word = malloc(len*sizeof(char));
 			strcpy(word,wordTok);
-			printf("%s\n", word);
 			reverse(word);
 			tokArray[i] = word;
 			i++;
 		}
 	}
 	tokArray[i] = NULL;
-	printf("number of words: %d\n", numWords);
-
 	return tokArray;
 }
 
