@@ -6,7 +6,7 @@ char **stringToTokens(char *str, char *sep){
 	char cpyIn[80];
 
 	strcpy(cpyIn, str);
-	if((wordToken = strtok(cpyIn, " ")) != NULL){
+	if((wordToken = strtok(cpyIn, sep)) != NULL){
 		numWords++;
 	}
 	else{
@@ -15,7 +15,7 @@ char **stringToTokens(char *str, char *sep){
 	printf("%s\n", wordToken);
 
 	while(wordToken != NULL){
-		wordToken = strtok(NULL, " ");
+		wordToken = strtok(NULL, sep);
 		if(wordToken != NULL){
 			numWords++;
 			printf("%s\n", wordToken);
@@ -26,7 +26,7 @@ char **stringToTokens(char *str, char *sep){
 
 	char **tokArray = malloc((numWords+1)*sizeof(char*));
 
-	wordTok = strtok(strpt, " ");
+	wordTok = strtok(strpt, sep);
 	len = strlen(wordTok);
 	word = malloc(len*sizeof(char));
 	strcpy(word,wordTok);
@@ -35,7 +35,7 @@ char **stringToTokens(char *str, char *sep){
 	tokArray[i] = word;
 	i++;
 	while(wordTok != NULL){
-		wordTok = strtok(NULL, " ");
+		wordTok = strtok(NULL, sep);
 		if(wordTok != NULL){
 			len = strlen(wordTok);
 			word = malloc(len*sizeof(char));
