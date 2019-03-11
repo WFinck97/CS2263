@@ -2,16 +2,32 @@
 
 char **stringToTokens(char *str, char *sep){
 	char *strpt = str, *wordTok, *wordToken, *word;
-	int numWords = 0, i = 0, len;
+	int numWords = 0, i = 0, len, validInput = 0;
 	char cpyIn[80];
 
-	strcpy(cpyIn, str);
-	if((wordToken = strtok(cpyIn, sep)) != NULL){
-		numWords++;
+	len = strlen(str);
+	// checking that there is an input
+	if(len == 0){
+		printf("please enter a sentence\n");
+		exit(0);
 	}
 	else{
-		printf("only one word was entered");
+		for(i = 0; i < len; i++){
+			if(strchr(sep, str[i]) == NULL){
+			validInput = 1;
+			}
+		}
 	}
+
+	if(validInput == 0){
+		printf("invalid input\n");
+		exit(0);
+	}
+
+	// checking if input is valid
+	strcpy(cpyIn, str);
+	wordToken = strtok(cpyIn, sep);
+	numWords++;
 
 	while(wordToken != NULL){
 		wordToken = strtok(NULL, sep);
@@ -22,6 +38,7 @@ char **stringToTokens(char *str, char *sep){
 
 	char **tokArray = malloc((numWords+1)*sizeof(char*));
 
+	i = 0;
 	wordTok = strtok(strpt, sep);
 	len = strlen(wordTok);
 	word = malloc(len*sizeof(char));
