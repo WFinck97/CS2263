@@ -18,17 +18,17 @@ char **stringToTokens(char *str, char *sep){
 			}
 		}
 	}
-
+	// checking if input is valid
 	if(validInput == 0){
 		printf("invalid input\n");
 		exit(0);
 	}
 
-	// checking if input is valid
 	strcpy(cpyIn, str);
 	wordToken = strtok(cpyIn, sep);
 	numWords++;
 
+	// counting the number of tokens in the string
 	while(wordToken != NULL){
 		wordToken = strtok(NULL, sep);
 		if(wordToken != NULL){
@@ -75,7 +75,7 @@ void reverse(char *s){
 	char temp;
 	len = strlen(s);
 	end = len - 1;
-	for(i = 0; i <= len/2; i++){
+	for(i = 0; i < len/2; i++){
 		temp = s[i];
 		s[i] = s[end];
 		s[end] = temp;
