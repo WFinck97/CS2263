@@ -41,18 +41,18 @@ char **stringToTokens(char *str, char *sep){
 	i = 0;
 	wordTok = strtok(strpt, sep);
 	len = strlen(wordTok);
-	word = malloc(len*sizeof(char));
-	strcpy(word,wordTok);
-	reverse(word);
+	word = malloc((len+1)*sizeof(char));
+	reverse(wordTok);
+	strncpy(word,wordTok,len);
 	tokArray[i] = word;
 	i++;
 	while(wordTok != NULL){
 		wordTok = strtok(NULL, sep);
 		if(wordTok != NULL){
 			len = strlen(wordTok);
-			word = malloc(len*sizeof(char));
-			strcpy(word,wordTok);
-			reverse(word);
+			word = malloc((len+1)*sizeof(char));
+			reverse(wordTok);
+			strncpy(word,wordTok,len);
 			tokArray[i] = word;
 			i++;
 		}
