@@ -4,6 +4,7 @@
 
 void gridInit(int *grid, int row, int col);
 void printGrid(int *grid, int row, int col);
+int countBlob(int row, int col);
 
 int main(){
 	int row, col;
@@ -37,5 +38,14 @@ void printGrid(int *grid, int row, int col){
 		}
 
 		printf("\n");
+	}
+}
+
+int countBlob(int r, int c, int row, int col){
+	if(grid[r*col + c] == 0){
+		return 0;
+	}
+	else{
+		
 	}
 }
