@@ -7,6 +7,7 @@ void gridInit(int *grid, int row, int col);
 void printGrid(int *grid, int row, int col);
 int countBlob(int r, int c, int row, int col, int *grid);
 void unMark(int *grid, int size);
+int countOnes(int *grid, int row, int col);
 
 int main(){
 	int row, col, i, j, check = 1;
@@ -39,16 +40,16 @@ int main(){
 		if(j == 0 && str_j[0] != '0'){
 			break;
 		}
-		if(i > row || i < 0){
+		if(i >= row || i < 0){
 			invalidIn = 1;
 		}
-		if(j > col || j < 0){
+		if(j >= col || j < 0){
 			invalidIn = 1;
 		}
 		if(invalidIn == 0){
 			blobSize = countBlob(i,j,row,col,grid);
-			printf("Blob size: %d\n", blobSize);
 			unMark(grid,row*col);
+			printf("Blob size: %d (%.1f %% of all 1's)\n", blobSize, (float)100*blobSize/countOnes(grid, row, col));
 		}
 		else{
 			printf("invalid coordinate\n");
@@ -91,7 +92,11 @@ int countBlob(int r, int c, int row, int col, int *grid){
 	}
 	if(grid[r*col + c] == 1){
 		grid[r*col + c] = 2;
-		return(1 + countBlob(r - 1, c, row, col, grid) + countBlob(r - 1, c - 1, row, col, grid) + countBlob(r - 1, c + 1, row, col, grid) + countBlob(r, c - 1, row, col, grid) + countBlob(r, c + 1, row, col, grid) + countBlob(r + 1, c - 1, row, col, grid) + countBlob(r + 1, c, row, col, grid) + countBlob(r + 1, c + 1, row, col, grid));
+		return(1 + countBlob(r - 1, c, row, col, grid) 
+			+ countBlob(r - 1, c - 1, row, col, grid) + countBlob(r - 1, c + 1, row, col, grid) 
+			+ countBlob(r, c - 1, row, col, grid) + countBlob(r, c + 1, row, col, grid) 
+			+ countBlob(r + 1, c - 1, row, col, grid) + countBlob(r + 1, c, row, col, grid) 
+			+ countBlob(r + 1, c + 1, row, col, grid));
 	}
 	else{
 		return 0;
@@ -105,4 +110,14 @@ void unMark(int *grid, int size){
 			grid[i] = 1;
 		}
 	}
+}
+
+int countOnes(int *grid, int row, int col){
+	int i, numOnes = 0;
+	for(i = 0; i < row*col; i++){
+		if(grid[i] == 1){
+			numOnes++;
+		}
+	}
+	return numOnes;
 }
