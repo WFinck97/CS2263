@@ -1,7 +1,7 @@
 // bmpedge.c
 #include "bmpfunc.h"
 #include <stdlib.h>
-static int RGB2Gray(char red, char green, char blue)
+static int RGB2Gray(unsigned char red, unsigned char green, unsigned char blue)
 {
   // this is a commonly used formula
   double gray = 0.2989 * red + 0.5870 * green + 0.1140 * blue;
