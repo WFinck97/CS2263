@@ -63,6 +63,10 @@ int main(int argc, char **argv)
     {
       BMP_mix(img);
     }
+  if (strcmp(argv[2], "unhide") == 0)
+    {
+      BMP_unhide(img);
+    }
 
   // Save the file
   if (BMP_save(img, argv[3]) == 0)
