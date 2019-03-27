@@ -3,7 +3,7 @@
 void BMP_unhide(BMP_Image *img){
 	int pxl;
 	unsigned char min = 0;
-	unsigned char threshold = 20;
+	unsigned char threshold = 10;
 	unsigned char max = 255;
 	// keep only green pixels
 	for (pxl = 0; pxl < (img -> data_size); pxl += 3)
