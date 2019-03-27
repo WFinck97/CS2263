@@ -22,4 +22,6 @@ void BMP_checker(BMP_Image *image);
 void BMP_mix(BMP_Image *image);
 // equalize by making the darkest to and brightest to 255
 void BMP_equalize(BMP_Image *image);
+// removes the noise from an image to reveal the hidden message
+void BMP_unhide(BMP_Image *img);
 #endif
