@@ -55,8 +55,10 @@ int GRAPHpath(int v, int w){
     return 0;
 }
 
+int GRAPHpathHelper(int )
+
 void GRAPHprint(FILE *f){
-    // Prints graph, with each adjacency list printed on one line, to filehandlef.
+    // Prints graph, with each adjacency list printed on one line, to filehandle f.
 }
 
 int GRAPHinsertE(Edge e){
