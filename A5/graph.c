@@ -52,6 +52,10 @@ int GRAPHpath(int v, int w){
     // using theabove algorithm. Also prints edges along path, if it exists.
     // Hint: you’llwant to use a separate recursive helper function, 
     // to include the array ofvisited vertices as a parameter.
+    if(v == w){
+    	return 1;
+    }
+    // mark v as visited
     return 0;
 }
 
