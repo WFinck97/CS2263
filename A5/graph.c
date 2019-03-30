@@ -47,6 +47,18 @@ static Node *constructEdge(int v, int wt, Node *next){
     return p;
 }
 
+int GRAPHpath(int v, int w){
+    // returns 1 if simple path between v and w exists, 0 otherwise
+    // using theabove algorithm. Also prints edges along path, if it exists.
+    // Hint: you’llwant to use a separate recursive helper function, 
+    // to include the array ofvisited vertices as a parameter.
+    return 0;
+}
+
+void GRAPHprint(FILE *f){
+    // Prints graph, with each adjacency list printed on one line, to filehandlef.
+}
+
 int GRAPHinsertE(Edge e){
     int v = e.v;
     G->adj[v] =
