@@ -18,6 +18,7 @@ typedef struct graphnode{
 typedef struct graph{
     int V;
     int E;
+    int *visited;
     Node **adj;  //array of ptrs to linked lists
 }Graph;
 
@@ -33,6 +34,7 @@ int GRAPHinit(int V){
         return 0;
     G->V = V;
     G->E = 0;
+    G->visited = calloc(V,sizeof(int));
     G->adj = calloc(V, sizeof(Node *));
     if(G->adj == NULL){
         free(G);
@@ -50,21 +52,33 @@ static Node *constructEdge(int v, int wt, Node *next){
     p->next = next;
     return p;
 }
-
+void GRAPHpathHelper(int v, int *visited){
+    visited[v] = 1;
+}
 int GRAPHpath(int v, int w){
     // returns 1 if simple path between v and w exists, 0 otherwise
     // using theabove algorithm. Also prints edges along path, if it exists.
-    // Hint: you’llwant to use a separate recursive helper function, 
+    // Hint: you’ll want to use a separate recursive helper function, 
     // to include the array ofvisited vertices as a parameter.
     if(v == w){
     	return 1;
     }
     // mark v as visited
-    
+    GRAPHpathHelper(v,G->visited);
+    // for all edges v-x
+    Node *nextNode;
+    nextNode = G->adj[v];
+    while(nextNode != NULL){
+        if(G->visited[nextNode->v] == 0){
+            if(GRAPHpath(nextNode->v,w) == 1){
+                printf("%d-%d\n", nextNode->v,v);
+                return 1;
+            }
+        }
+        nextNode = nextNode->next;
+    }
     return 0;
 }
-
-//int GRAPHpathHelper(int )
 
 void GRAPHprint(FILE *f){
     // Prints graph, with each adjacency list printed on one line, to filehandle f.

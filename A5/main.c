@@ -14,7 +14,7 @@
 #include "graph.h"
 
 int main(){
-    int n, m;
+    int n, m, n1 = 7, n2 = 4;
     Edge e;
     scanf("%d %d",&n, &m);
     if(!GRAPHinit(n)){
@@ -34,6 +34,10 @@ int main(){
             printf("couldn't insert edge\n");
             return 1;
         }
+    }
+
+    if(GRAPHpath(n1,n2)){
+        printf("there is a path from %d to %d\n", n1, n2);
     }
     printGraph();
     int s;

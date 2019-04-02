@@ -21,6 +21,7 @@ typedef struct {
 int GRAPHinit(int);
 int GRAPHinsertE(Edge);
 int GRAPHpath(int v, int w);
+void GRAPHpathHelper(int v, int *visited);
 void GRAPHprint(FILE *f);
 void GRAPHdestroy();
 int *SSSP(int);
