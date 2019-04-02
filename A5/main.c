@@ -30,6 +30,12 @@ int main(int argc, char * argv[]){
 		return EXIT_FAILURE;
 	}
 
+	if(fscanf(fptr,"%d %d", &n, &m) != 2){
+		printf("error reading values from file.\n");
+	}
+
+	printf("n = %d and m = %d\n", n, m);
+
 	printf("the name of the file is %s", argv[1]);
     scanf("%d %d",&n, &m);
     if(!GRAPHinit(n)){
