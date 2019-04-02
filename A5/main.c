@@ -13,9 +13,23 @@
 #include <stdio.h>
 #include "graph.h"
 
-int main(){
+int main(int argc, char * argv[]){
+    FILE *fptr;
     int n, m, n1 = 7, n2 = 4;
     Edge e;
+
+    if(argc < 3){
+    	printf("need to enter input and output file.\n");
+    	return EXIT_FAILURE;
+    }
+
+    fptr = fopen(argv[1], "r");
+	if (fptr == NULL){
+		printf("fopen fail.\n");
+		return EXIT_FAILURE;
+	}
+
+	printf("the name of the file is %s", argv[1]);
     scanf("%d %d",&n, &m);
     if(!GRAPHinit(n)){
         printf("couldn't allocate memory for graph\n");
