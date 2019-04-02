@@ -104,6 +104,7 @@ void GRAPHdestroy(){
         }
     }
     free(G->adj);
+    free(G->visited);
     free(G);
 }
 
