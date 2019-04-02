@@ -36,17 +36,11 @@ int main(int argc, char * argv[]){
 		fclose (fptr);
 		return EXIT_FAILURE;
 	}
-	printf("the name of the output file is %s", argv[2]);
 
 	if(fscanf(fptr,"%d %d", &n, &m) != 2){
 		printf("error reading values from file.\n");
 	}
 
-	printf("n = %d and m = %d\n", n, m);
-
-	printf("the name of the file is %s", argv[1]);
-    //scanf("%d %d",&n, &m);
-    
     if(!GRAPHinit(n)){
         printf("couldn't allocate memory for graph\n");
         return 1;
@@ -65,11 +59,23 @@ int main(int argc, char * argv[]){
             return 1;
         }
     }
+    while(!feof(stdin)){
+    	printf("Enter a pair of vertices (^D to quit): ");
+    	if(scanf("%d %d", &n1, &n2) == 2){
+			if(GRAPHpath(n1,n2)){
+	        	printf("\npath exists\n");
+	    	}
+	    	else if(GRAPHpath(n1, n2) == 0){
+	    		printf("path does not exist\n");
+	    	}
+	    	resetVisited();
+		}
 
-    if(GRAPHpath(n1,n2)){
-        printf("there is a path from %d to %d\n", n1, n2);
+		else{
+			printf("invalid input\n");
+		}
     }
-    printGraph();
+   
     GRAPHprint(fout);
     // int s;
     // scanf("%d",&s);

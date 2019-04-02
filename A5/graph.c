@@ -71,7 +71,7 @@ int GRAPHpath(int v, int w){
     while(nextNode != NULL){
         if(G->visited[nextNode->v] == 0){
             if(GRAPHpath(nextNode->v,w) == 1){
-                printf("%d-%d\n", nextNode->v,v);
+                printf("%d-%d ", nextNode->v,v);
                 return 1;
             }
         }
@@ -94,6 +94,12 @@ void GRAPHprint(FILE *f){
     }
     
     fclose(f);
+}
+
+void resetVisited(void){
+	for(int i = 0; i < G->V; i++){
+		G->visited[i] = 0;
+	}
 }
 
 int GRAPHinsertE(Edge e){
