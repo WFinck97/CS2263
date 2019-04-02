@@ -35,7 +35,7 @@ int main(){
             return 1;
         }
     }
-    
+    printGraph();
     int s;
     scanf("%d",&s);
     if(s >= n || s < 0){

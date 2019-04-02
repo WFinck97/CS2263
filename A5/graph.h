@@ -22,6 +22,7 @@ int GRAPHinit(int);
 int GRAPHinsertE(Edge);
 void GRAPHdestroy();
 int *SSSP(int);
+void printGraph(void);
 
 
 #endif /* graph_h */

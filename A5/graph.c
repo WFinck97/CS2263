@@ -23,6 +23,10 @@ typedef struct graph{
 
 Graph *G;
 
+void printGraph(void){
+    printf("node 0 points to node: %d\n", G->adj[0]->v);
+    printf("node 0 also points to node: %d\n", G->adj[0]->next->v);
+}
 int GRAPHinit(int V){
     G = malloc(sizeof(Graph));
     if(G == NULL)
@@ -59,7 +63,7 @@ int GRAPHpath(int v, int w){
     return 0;
 }
 
-int GRAPHpathHelper(int )
+//int GRAPHpathHelper(int )
 
 void GRAPHprint(FILE *f){
     // Prints graph, with each adjacency list printed on one line, to filehandle f.
