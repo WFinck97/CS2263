@@ -37,13 +37,14 @@ int main(int argc, char * argv[]){
 	printf("n = %d and m = %d\n", n, m);
 
 	printf("the name of the file is %s", argv[1]);
-    scanf("%d %d",&n, &m);
+    //scanf("%d %d",&n, &m);
+    
     if(!GRAPHinit(n)){
         printf("couldn't allocate memory for graph\n");
         return 1;
     }
     for(int k=0; k<m; k++){
-        if(scanf("%d %d %d", &e.v, &e.w, &e.wt)!=3){
+        if(fscanf(fptr,"%d %d %d", &e.v, &e.w, &e.wt)!=3){
             printf("input invalid\n");
             return 1;
         }
