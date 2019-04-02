@@ -70,19 +70,20 @@ int main(int argc, char * argv[]){
         printf("there is a path from %d to %d\n", n1, n2);
     }
     printGraph();
-    int s;
-    scanf("%d",&s);
-    if(s >= n || s < 0){
-        printf("invalid source vertex\n");
-        return 1;
-    }
-    int *D = SSSP(s);
-    if(D == NULL){
-        printf("SSSP malloc error\n");
-        return 1;
-    }
-    for(int i=0;i<n;i++)
-        printf("%d ",D[i]);
-    printf("\n");
+    GRAPHprint(fout);
+    // int s;
+    // scanf("%d",&s);
+    // if(s >= n || s < 0){
+    //     printf("invalid source vertex\n");
+    //     return 1;
+    // }
+    // int *D = SSSP(s);
+    // if(D == NULL){
+    //     printf("SSSP malloc error\n");
+    //     return 1;
+    // }
+    // for(int i=0;i<n;i++)
+    //     printf("%d ",D[i]);
+    // printf("\n");
     GRAPHdestroy();
 }

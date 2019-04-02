@@ -82,6 +82,18 @@ int GRAPHpath(int v, int w){
 
 void GRAPHprint(FILE *f){
     // Prints graph, with each adjacency list printed on one line, to filehandle f.
+    Node *nextNode;
+    for(int i = 0; i < G->V; i++){
+    	fprintf(f, "%d: ", i);
+    	nextNode = G->adj[i];
+    	while(nextNode != NULL){
+    		fprintf(f, "%d ", nextNode->v);
+    		nextNode = nextNode->next;
+    	}
+    	fprintf(f,"\n");
+    }
+    
+    fclose(f);
 }
 
 int GRAPHinsertE(Edge e){
