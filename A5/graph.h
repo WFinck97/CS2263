@@ -20,6 +20,8 @@ typedef struct {
  and return 0 if malloc fails */
 int GRAPHinit(int);
 int GRAPHinsertE(Edge);
+int GRAPHpath(int v, int w);
+void GRAPHprint(FILE *f);
 void GRAPHdestroy();
 int *SSSP(int);
 void printGraph(void);
