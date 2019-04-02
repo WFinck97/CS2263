@@ -18,7 +18,7 @@ typedef struct graphnode{
 typedef struct graph{
     int V;
     int E;
-    int *visited;
+    int *visited; //array of int to keep track of visited nodes
     Node **adj;  //array of ptrs to linked lists
 }Graph;
 
