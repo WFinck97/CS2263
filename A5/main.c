@@ -16,6 +16,7 @@
 
 int main(int argc, char * argv[]){
     FILE *fptr;
+    FILE *fout;
     int n, m, n1 = 7, n2 = 4;
     Edge e;
 
@@ -29,6 +30,13 @@ int main(int argc, char * argv[]){
 		printf("fopen fail.\n");
 		return EXIT_FAILURE;
 	}
+
+	fout = fopen(argv[2], "w");
+	if (fout == NULL){
+		fclose (fptr);
+		return EXIT_FAILURE;
+	}
+	printf("the name of the output file is %s", argv[2]);
 
 	if(fscanf(fptr,"%d %d", &n, &m) != 2){
 		printf("error reading values from file.\n");
