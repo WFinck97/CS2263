@@ -1,14 +1,3 @@
-//
-//  main.c
-//  
-//
-//  Created by Gerhard Dueck on 2018-03-27.
-//
-
-
-/* Using Graph ADT to solve SSSP
- * Requires graph input in edge list
- */
 
 #include <stdio.h>
 #include<stdlib.h>
@@ -46,7 +35,7 @@ int main(int argc, char * argv[]){
         return 1;
     }
     for(int k=0; k<m; k++){
-        if(fscanf(fptr,"%d %d %d", &e.v, &e.w, &e.wt)!=3){
+        if(fscanf(fptr,"%d %d", &e.v, &e.w)!=2){
             printf("input invalid\n");
             return 1;
         }
@@ -62,7 +51,13 @@ int main(int argc, char * argv[]){
     while(!feof(stdin)){
     	printf("Enter a pair of vertices (^D to quit): ");
     	if(scanf("%d %d", &n1, &n2) == 2){
-			if(GRAPHpath(n1,n2)){
+			if(n1 > n-1 || n2 > n-1){
+				printf("vertex index to large!\n");
+			}
+			else if(n1 < 0 || n2 < 0){
+				printf("vertex must be 0 or greater!\n");
+			}
+			else if(GRAPHpath(n1,n2)){
 	        	printf("\npath exists\n");
 	    	}
 	    	else if(GRAPHpath(n1, n2) == 0){
@@ -72,24 +67,11 @@ int main(int argc, char * argv[]){
 		}
 
 		else{
-			printf("invalid input\n");
+			break;
 		}
     }
    
     GRAPHprint(fout);
-    // int s;
-    // scanf("%d",&s);
-    // if(s >= n || s < 0){
-    //     printf("invalid source vertex\n");
-    //     return 1;
-    // }
-    // int *D = SSSP(s);
-    // if(D == NULL){
-    //     printf("SSSP malloc error\n");
-    //     return 1;
-    // }
-    // for(int i=0;i<n;i++)
-    //     printf("%d ",D[i]);
-    // printf("\n");
     GRAPHdestroy();
+    return 0;
 }
