@@ -32,6 +32,9 @@ int main(int argc, char *argv[]){
 	}
 
 	product = ((int)(*argv[1]-'0'))*((int)(*argv[2]-'0'));
+
+	printf("%s * %s = %d\n", argv[1], argv[2], product);
+	return 0;
 }
 
 char * question2(char *s, int l){
