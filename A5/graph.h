@@ -26,6 +26,7 @@ void GRAPHprint(FILE *f);
 void GRAPHdestroy();
 int *SSSP(int);
 void printGraph(void);
+void resetVisited(void);
 
 
 #endif /* graph_h */

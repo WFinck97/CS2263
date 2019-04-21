@@ -71,7 +71,7 @@ int GRAPHpath(int v, int w){
     while(nextNode != NULL){
         if(G->visited[nextNode->v] == 0){
             if(GRAPHpath(nextNode->v,w) == 1){
-                printf("%d-%d\n", nextNode->v,v);
+                printf("%d-%d ", nextNode->v,v);
                 return 1;
             }
         }
@@ -82,6 +82,24 @@ int GRAPHpath(int v, int w){
 
 void GRAPHprint(FILE *f){
     // Prints graph, with each adjacency list printed on one line, to filehandle f.
+    Node *nextNode;
+    for(int i = 0; i < G->V; i++){
+    	fprintf(f, "%d: ", i);
+    	nextNode = G->adj[i];
+    	while(nextNode != NULL){
+    		fprintf(f, "%d ", nextNode->v);
+    		nextNode = nextNode->next;
+    	}
+    	fprintf(f,"\n");
+    }
+    
+    fclose(f);
+}
+
+void resetVisited(void){
+	for(int i = 0; i < G->V; i++){
+		G->visited[i] = 0;
+	}
 }
 
 int GRAPHinsertE(Edge e){
@@ -104,6 +122,7 @@ void GRAPHdestroy(){
         }
     }
     free(G->adj);
+    free(G->visited);
     free(G);
 }
 
