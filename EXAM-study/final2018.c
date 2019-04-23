@@ -37,6 +37,34 @@ int mystery(int n){
 	else return 2 * mystery(n - 1);
 }
 
+// QUESTION 8
+void mystery2(int *v, int *w){
+	if(w > v){
+		int *p = v;
+		int *xp = v + 1;
+		while(xp <= w){
+			if(*xp > *p) p = xp;
+			xp++;
+		}
+		int tmp = *p;
+		*p = *w;
+		*w = tmp;
+		mystery2(v,w-1);
+	}
+}
+
+// QUESTION 9
+void titleCase(char *str){
+	int i = 0;
+	*str = toupper(*str);
+	while(*str){
+		if(str[i] == ' '){
+			*(str + 1) = toupper(*(str + 1));
+		}
+		str++;
+	}
+}
+
 int main(int argc, char *argv[]){
  	// question 2
  	// int i = 5, *pi, **ppi;
@@ -83,7 +111,18 @@ int main(int argc, char *argv[]){
 	// }
 
 	// QUESTION 7
-	printf("%d\n", mystery(10));
+	// printf("%d\n", mystery(10));
 
+	//  QUESTION 8
+	// int arr[5] = {4, 12, 8, -5, 9};
+	// mystery2(arr, arr + 4);
+	// for(int i = 0; i < 5; i++){
+	// 	printf("%d ", arr[i]);
+	// }
+
+	// QUESTION 9
+	char title[] = "this is the title of the question";
+	titleCase(title);
+	printf("%s\n", title);
  	return 0;
  }
