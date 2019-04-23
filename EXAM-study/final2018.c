@@ -65,6 +65,50 @@ void titleCase(char *str){
 	}
 }
 
+// QUESTION 11
+typedef struct node{
+	int value;
+	struct node *next;
+}	NodeT;
+
+NodeT * deleteFromList(NodeT *first, int key){
+	// if(first == NULL){
+	// 	return(first);
+	// }
+
+	// if(first->value == key){
+	// 	first = first->next;
+	// 	return(first);
+	// }
+
+	// if(first->next->value == key){
+	// 	first->next = first->next->next;
+	// 	return(first);
+	// }
+
+	// return deleteFromList(first->next, key);
+	if(first == NULL){
+		return(first);
+	}
+
+	if(first->value == key){
+		first = first->next;
+		return(first);
+	}
+
+	NodeT *cur = first;
+
+	while(cur->next != NULL || cur->value != key){
+		if(cur->next->value == key){
+			cur->next = cur->next->next;
+			break;
+		}
+		cur = cur->next;
+	}
+
+	return(first);
+}
+
 int main(int argc, char *argv[]){
  	// question 2
  	// int i = 5, *pi, **ppi;
@@ -121,8 +165,12 @@ int main(int argc, char *argv[]){
 	// }
 
 	// QUESTION 9
-	char title[] = "this is the title of the question";
-	titleCase(title);
-	printf("%s\n", title);
+	// char title[] = "this is the title of the question";
+	// titleCase(title);
+	// printf("%s\n", title);
+
+	// QUESTION 10
+
+
  	return 0;
  }
